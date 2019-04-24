@@ -1,2 +1,3 @@
-# genetic_algorithm_battleship
-Evolution Sunk My Battleship!
+# Evolution Sunk My Battleship!
+
+Genetic Algorithm
