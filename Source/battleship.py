@@ -59,6 +59,7 @@ def new_board():
     
     return board, genetic_solution
 
+# fitness function
 def board_match(solution, candidate):
     n_gene_matches = 0
     
