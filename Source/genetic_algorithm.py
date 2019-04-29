@@ -139,3 +139,30 @@ def create_splices(generation, n_splice_pairs):
             
     # return the generation
     return generation
+
+def fill_random(generation, generation_size, genes):
+    
+    # get generation attributes
+    last_generation = generation['Generation'].max()
+    last_sequence = generation['Sequence'].max()
+    
+    # for each random chromosome
+    i = generation.shape[0]
+    while i < generation_size:
+        
+        # create random chromosome
+        chromosome = {}
+        chromosome['Sequence'] = last_sequence + i + 1
+        chromosome['Chromosome'] = ''.join(str(x) for x in list(np.random.randint(2, size=genes)))
+        chromosome['Generation'] = last_generation
+        chromosome['Birth'] = 'Random'
+        chromosome['Parents'] = 0
+        chromosome['Elite'] = False
+
+        # check for uniqueness and add to gene pool
+        if chromosome['Chromosome'] not in generation['Chromosome']:
+            generation = generation.append(chromosome, ignore_index=True)
+            i += 1
+            
+    # return the generation
+    return generation
