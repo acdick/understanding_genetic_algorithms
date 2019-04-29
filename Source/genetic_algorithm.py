@@ -7,7 +7,8 @@ def random_generation(generation_size, genes):
     generation = pd.DataFrame(columns=['Sequence','Chromosome','Generation','Birth','Fitness','Parents'])
 
     # for each chromosome
-    for i in range(generation_size):
+    i = 0
+    while i < generation_size:
 
         # create random chromosome
         chromosome = {}
@@ -20,6 +21,7 @@ def random_generation(generation_size, genes):
         # check for uniqueness and add to gene pool
         if chromosome['Chromosome'] not in generation['Chromosome']:
             generation = generation.append(chromosome, ignore_index=True)
+            i += 1
 
     # return the generation
     return generation
@@ -58,12 +60,13 @@ def create_mutants(generation, mutants, bit_flip_rate):
     # get generation attributes
     last_generation = generation['Generation'].max()
     last_sequence = generation['Sequence'].max()
-    n_elites = generation['Elite'].count()
+    n_elites = generation['Birth'].value_counts()['Elitism']
     
     # for each mutant
-    for i in range(mutants):
+    i = 0
+    while i < mutants:
         
-        # create mutant pheontype
+        # create mutant chromosome
         chromosome = {}
         chromosome['Sequence'] = last_sequence + i + 1
         chromosome['Generation'] = last_generation
@@ -81,17 +84,58 @@ def create_mutants(generation, mutants, bit_flip_rate):
 
         # create mutant child from parent and flip bits from array
         mutant = ''
-        for i in range(len(bits_to_flip)):
-            if not int(bits_to_flip[i]):
-                mutant += parent[i]
+        for j in range(len(bits_to_flip)):
+            if not int(bits_to_flip[j]):
+                mutant += parent[j]
             else:
-                mutant += str(abs(int(parent[i]) - 1))
-                
-        chromosome['Chromosome'] = mutant
-                
+                mutant += str(abs(int(parent[j]) - 1))
+        
         # check for uniqueness and add to gene pool
+        chromosome['Chromosome'] = mutant
         if chromosome['Chromosome'] not in generation['Chromosome']:
             generation = generation.append(chromosome, ignore_index=True)
+            i += 1
+            
+    # return the generation
+    return generation
+
+def create_splices(generation, n_splice_pairs):
+    
+    # get generation attributes
+    last_generation = generation['Generation'].max()
+    last_sequence = generation['Sequence'].max()
+    n_elites = generation['Birth'].value_counts()['Elitism']
+    
+    # for each splice pair
+    i = 0
+    while i < n_splice_pairs:
+        
+        # create splice pair chromosome
+        chromosome = {}
+        chromosome['Sequence'] = last_sequence + i + 1
+        chromosome['Generation'] = last_generation
+        chromosome['Birth'] = 'Splice Pair'
+        chromosome['Elite'] = False
+        
+        # select random elite pair as new parents
+        parent_indices = np.random.choice(n_elites, 2*n_splice_pairs, replace=False)
+        chromosome['Parents'] = np.array(generation['Sequence'].values)[parent_indices]
+        parents = np.array(generation['Chromosome'].values)[parent_indices]
+
+        # create random splice bit
+        splice_bit = np.random.randint(len(parents[0]))
+
+        # create splice pair children from parent and cross over bits
+        splices = []
+        splices.append(parents[0][0:splice_bit] + parents[1][splice_bit:len(parents[1])])
+        splices.append(parents[1][0:splice_bit] + parents[0][splice_bit:len(parents[0])])
+        
+        # check for uniqueness and add to gene pool
+        for splice in splices:
+            chromosome['Chromosome'] = splice
+            generation = generation.append(chromosome, ignore_index=True)
+            
+        i += 1
             
     # return the generation
     return generation
