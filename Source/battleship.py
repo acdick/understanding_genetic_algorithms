@@ -60,7 +60,7 @@ def new_board():
     return board, genetic_solution
 
 # fitness function
-def board_match(solution, candidate):
+def accuracy(solution, candidate):
     n_gene_matches = 0
     
     for i in range(len(solution)):

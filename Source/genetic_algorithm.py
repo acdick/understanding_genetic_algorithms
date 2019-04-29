@@ -4,7 +4,7 @@ import numpy as np
 def random_generation(generation_size, genes):
 
     # create dataframe for gene pool
-    generation = pd.DataFrame(columns=['Sequence','Phenotype','Generation','Birth','Fitness','Parent'])
+    generation = pd.DataFrame(columns=['Sequence','Phenotype','Generation','Birth','Fitness','Parents'])
 
     # for each phenotype
     for i in range(generation_size):
@@ -15,7 +15,7 @@ def random_generation(generation_size, genes):
         phenotype['Phenotype'] = ''.join(str(x) for x in list(np.random.randint(2, size=genes)))
         phenotype['Generation'] = 1
         phenotype['Birth'] = 'Random'
-        phenotype['Parent'] = 'None'
+        phenotype['Parents'] = 0
 
         # check for uniqueness and add to gene pool
         if phenotype['Phenotype'] not in generation['Phenotype']:
@@ -39,10 +39,13 @@ def assign_elites(generation, elite_rate):
     return generation
 
 def select_elites(generation):
+    
+    # copy elites from old generation
     elites = generation.loc[generation['Elite'] == True].copy()
     
+    # update attributes of new generation
     pool_size = generation['Sequence'].max()
-    elites['Parent'] = elites['Sequence']
+    elites['Parents'] = elites['Sequence']
     elites['Sequence'] = range(pool_size + 1, pool_size + elites.shape[0] + 1)
     elites.loc[:,'Birth'] = 'Elitism'
     
