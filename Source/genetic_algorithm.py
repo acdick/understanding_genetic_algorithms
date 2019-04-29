@@ -189,7 +189,7 @@ def create_descendents(gene_pool, elite_rate, solution, stop_limit):
         next_generation = create_splices(next_generation, n_splice_pairs)
 
         # add mutants to generation
-        mutant_rate = 0.40
+        mutant_rate = 0.60
         bit_flip_rate = 0.01
         n_mutants = int(mutant_rate * generation_size)
         next_generation = create_mutants(next_generation, n_mutants, bit_flip_rate)
