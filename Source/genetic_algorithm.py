@@ -1,3 +1,4 @@
+import battleship as ship
 import pandas as pd
 import numpy as np
 
@@ -118,7 +119,7 @@ def create_splices(generation, n_splice_pairs):
         chromosome['Elite'] = False
         
         # select random elite pair as new parents
-        parent_indices = np.random.choice(n_elites, 2*n_splice_pairs, replace=False)
+        parent_indices = np.random.choice(n_elites, 2, replace=False)
         chromosome['Parents'] = np.array(generation['Sequence'].values)[parent_indices]
         parents = np.array(generation['Chromosome'].values)[parent_indices]
 
@@ -166,3 +167,45 @@ def fill_random(generation, generation_size, genes):
             
     # return the generation
     return generation
+
+def create_descendents(gene_pool, elite_rate, solution, stop_limit):
+    
+    # copy initial generation
+    next_generation = gene_pool.copy()
+    generation_size = next_generation.shape[0]
+    
+    # create generations until fitness criteria is achieved
+    while gene_pool['Fitness'].max() < stop_limit:
+        
+        # print current generation
+        print(str(gene_pool['Generation'].max()) + ': ' + str(gene_pool['Fitness'].max()))
+        
+        # select elites with elite rate
+        next_generation = select_elites(next_generation)
+
+        # add splice pairs to generation
+        splice_pair_rate = elite_rate / 2
+        n_splice_pairs = int(splice_pair_rate * generation_size)
+        next_generation = create_splices(next_generation, n_splice_pairs)
+
+        # add mutants to generation
+        mutant_rate = 0.40
+        bit_flip_rate = 0.01
+        n_mutants = int(mutant_rate * generation_size)
+        next_generation = create_mutants(next_generation, n_mutants, bit_flip_rate)
+
+        # fill the rest of the generation with random chromosomes for diversity
+        next_generation = fill_random(next_generation, generation_size, 100)
+
+        # compare fitness
+        next_generation['Fitness'] = next_generation.apply(lambda row: ship.accuracy(row.Chromosome, solution), axis=1)
+
+        # assign elites with elite rate
+        elite_rate = 0.20
+        next_generation = assign_elites(next_generation, elite_rate)
+        next_generation
+
+        # add generation to gene pool
+        gene_pool = gene_pool.append(next_generation)
+
+    return gene_pool
