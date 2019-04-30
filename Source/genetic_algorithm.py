@@ -113,7 +113,6 @@ def create_splices(generation, n_splice_pairs):
         
         # create splice pair chromosome
         chromosome = {}
-        chromosome['Sequence'] = last_sequence + i + 1
         chromosome['Generation'] = last_generation
         chromosome['Birth'] = 'Splice Pair'
         chromosome['Elite'] = False
@@ -131,10 +130,14 @@ def create_splices(generation, n_splice_pairs):
         splices.append(parents[0][0:splice_bit] + parents[1][splice_bit:len(parents[1])])
         splices.append(parents[1][0:splice_bit] + parents[0][splice_bit:len(parents[0])])
         
-        # check for uniqueness and add to gene pool
-        for splice in splices:
-            chromosome['Chromosome'] = splice
-            generation = generation.append(chromosome, ignore_index=True)
+        # add splices to gene pool
+        chromosome['Chromosome'] = splices[0]
+        chromosome['Sequence'] = last_sequence + i + 1
+        generation = generation.append(chromosome, ignore_index=True)
+        
+        chromosome['Chromosome'] = splices[1]
+        chromosome['Sequence'] = last_sequence + i + 2
+        generation = generation.append(chromosome, ignore_index=True)
             
         i += 1
             
