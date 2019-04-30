@@ -209,3 +209,6 @@ def create_descendents(gene_pool, elite_rate, solution, stop_limit):
         gene_pool = gene_pool.append(next_generation)
 
     return gene_pool
+
+def solve():
+    return gene_pool
