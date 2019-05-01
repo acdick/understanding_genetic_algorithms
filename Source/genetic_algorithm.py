@@ -181,7 +181,7 @@ def create_descendents(gene_pool, elite_rate, solution, stop_limit):
     while gene_pool['Fitness'].max() < stop_limit:
         
         # print current generation
-        print(str(gene_pool['Generation'].max()) + ': ' + str(gene_pool['Fitness'].max()))
+        # print(str(gene_pool['Generation'].max()) + ': ' + str(gene_pool['Fitness'].max()))
         
         # select elites with elite rate
         next_generation = select_elites(next_generation)
@@ -213,5 +213,19 @@ def create_descendents(gene_pool, elite_rate, solution, stop_limit):
 
     return gene_pool
 
-def solve():
+def solve(solution, generation_size):
+    # initialize the first random generation
+    gene_pool = random_generation(generation_size, 100)
+
+    # compare fitness
+    gene_pool['Fitness'] = gene_pool.apply(lambda row: ship.accuracy(row.Chromosome, solution), axis=1)
+
+    # assign elites with elite rate
+    elite_rate = 0.20
+    gene_pool = assign_elites(gene_pool, elite_rate)
+
+    # create successive generations until termination criteria is met
+    gene_pool = create_descendents(gene_pool, elite_rate, solution, 1.0)
+    gene_pool = gene_pool.set_index('Sequence')
+    
     return gene_pool
