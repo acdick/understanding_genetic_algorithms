@@ -1,3 +1,1 @@
-# Evolution Sunk My Battleship!
-
-Genetic Algorithm
+# Understanding Genetic Algorithms
