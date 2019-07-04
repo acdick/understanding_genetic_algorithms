@@ -1,6 +1,6 @@
 DATA STRUCTURES AND ALGORITHMS
 # Understanding Genetic Algorithms
-Solving a Battleship Board Game as an Optimization Problem
+SOLVING A BATTLESHIP BOARD GAME AS AN OPTIMIZATION PROBLEM
 
 A genetic algorithm is a prime example of technology imitating nature to solve complex problems, in this case, by adopting the concept of natural selection in an evolutionary algorithm. Genetic algorithms, introduced in 1960 by John Holland, extend Alan Turing’s concept of a “learning machine” and are best-suited for solving optimization problems such as the traveling salesman.
 
@@ -8,14 +8,16 @@ To intuitively understand the practical implementation and fundamental requireme
 
 [Continue reading the full story on Towards Data Science, a Medium publication](https://towardsdatascience.com/understanding-genetic-algorithms-cd556e9089cb?source=friends_link&sk=70e5b098ef167ff2d1132396ab441030)
 
-## Source
+## Project Features
+
+## Source Code
 
 **[The Battleship Module](/src/battleship.py)**
 * Random Battleship board generator
 * Genetic representation of the board
 * Fitness function evaluator of candidate solution
 
-**[Genetic Algorithm Module](/src/genetic_algorithm.py)**
+**[The Genetic Algorithm Module](/src/genetic_algorithm.py)**
 * Generator for an initial random generation
 * Assignment of elite parents
 * Selection of elite parents
@@ -25,7 +27,7 @@ To intuitively understand the practical implementation and fundamental requireme
 * Creation of descendent generation
 * Evaluation of fitness of generation
 
-## Featured Analysis
+## Sample Output
 [Featured Notebook](/src/genetic_algorithm_battleship.ipynb)
 
 ![01 Board Solution](/img/01_Battleship_Board_Solution.png)
