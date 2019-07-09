@@ -6,11 +6,20 @@ A genetic algorithm is a prime example of technology imitating nature to solve c
 
 To intuitively understand the practical implementation and fundamental requirements for employing genetic algorithms, we can set up a toy problem and solve the board of the classic guessing game, Battleship, first released by Milton Bradley in 1967. But rather than calling a sequence of individual shots, let’s ask our genetic algorithm to make a series of guesses of the entire board.
 
-[Continue reading the full story on Towards Data Science, a Medium publication](https://towardsdatascience.com/understanding-genetic-algorithms-cd556e9089cb?source=friends_link&sk=70e5b098ef167ff2d1132396ab441030)
+[Continue reading the full story curated by Towards Data Science, a Medium publication](https://towardsdatascience.com/understanding-genetic-algorithms-cd556e9089cb?source=friends_link&sk=70e5b098ef167ff2d1132396ab441030)
+
+## Repository Contents
+
+* [Project Features](#project-features)
+* [Source Code](#source-code)
+* [Output Results](#output-results)
+* [Collaboration](#collaboration)
 
 ## Project Features
+MACHINE LEARNING | OPTIMIZATION
 
 ## Source Code
+PYTHON
 
 **[The Battleship Module](/src/battleship.py)**
 * Random Battleship board generator
@@ -27,8 +36,10 @@ To intuitively understand the practical implementation and fundamental requireme
 * Creation of descendent generation
 * Evaluation of fitness of generation
 
-## Sample Output
-[Featured Notebook](/src/genetic_algorithm_battleship.ipynb)
+## Output Results
+SEABORN
+
+**[Featured Notebook](/src/genetic_algorithm_battleship.ipynb)**
 
 ![01 Board Solution](/img/01_Battleship_Board_Solution.png)
 ![02 Random Guess](/img/02_Battleship_Random_Guess_51.png)
@@ -40,3 +51,14 @@ To intuitively understand the practical implementation and fundamental requireme
 ![08 Statistics 155](/img/08_Stats_155.png)
 ![09 Convergence](/img/09_Convergence.png)
 ![10 Performance](/img/10_Performance.png)
+
+## Collaboration
+
+**Contact:** Adam C Dick
+* [Email](mailto:adam.c.dick@gmail.com)
+* [LinkedIn](https://www.linkedin.com/in/adamcdick/)
+* [Medium](https://medium.com/@adam.c.dick)
+* [Scholar](https://scholar.google.com/citations?user=eMO88ogAAAAJ&hl=en)
+
+**License**
+* [MIT License](https://github.com/acdick/understanding_genetic_algorithms/blob/master/LICENSE)
