@@ -23,9 +23,9 @@ ARTIFICIAL INTELLIGENCE | MACHINE LEARNING | OPTIMIZATION | EVOLUTIONARY ALGORIT
 </p>
 
 - [x] **Random Board Generator for Battleship Game**<br>
-Binary representation of Battleship board with 5 ships occupying 17 squares
+Graphical and binary representation of Battleship board with 5 ships occupying 17 squares
 - [x] **Implementation of Genetic Algorithm**<br>
-Iterative solver that converges to the genetic solution of a random Battleship board
+Iterative solver that generates candidate solutions of an entire board  of a random Battleship game and converges to the genetic solution
 - [x] **Genetic Selector: Elitism**<br>
 The fittest chromosomes from the former generation that are selected to be parents of all of the chromosomes in a new generation.
 - [x] **Genetic Operator: Crossover**<br>
@@ -65,47 +65,47 @@ SEABORN | MATPLOTLIB
 
 **Random Chromosome with 51 Occupied Squares (Red) and 49 Unoccupied Squares (Blue)**<br>
 <p align="center">
-  <img src="/img/02_Battleship_Random_Guess_51.png" width="256" title="Random Guess">
+  <img src="/img/02_Battleship_Random_Guess_51.png" width="600" title="Random Guess">
 </p>
 
 **Accuracy Rate of Random Chromosome with 52 Matches (Green) and 48 Mismatches (Red)**<br>
 <p align="center">
-  <img src="/img/03_Random_Accuracy_53.png" width="256" title="Random Accuracy">
+  <img src="/img/03_Random_Accuracy_53.png" width="600" title="Random Accuracy">
 </p>
 
 **Fitness of 10 Random Chromosomes in Generation 1**<br>
 <p align="center">
-  <img src="/img/04_Generation_001.png" width="256" title="Generation 001">
+  <img src="/img/04_Generation_001.png" width="600" title="Generation 001">
 </p>
 
 **Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 2**<br>
 <p align="center">
-  <img src="/img/05_Generation_002.png" width="256" title="Generation 002">
+  <img src="/img/05_Generation_002.png" width="700" title="Generation 002">
 </p>
 
 **Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 155**<br>
 <p align="center">
-  <img src="/img/06_Generation_155.png" width="256" title="Generation 155">
+  <img src="/img/06_Generation_155.png" width="700" title="Generation 155">
 </p>
 
 **Fitness Distribution Statistics for Generations 1 to 10**<br>
 <p align="center">
-  <img src="/img/07_Stats_10.png" width="256" title="Statistics 010">
+  <img src="/img/07_Stats_10.png" width="700" title="Statistics 010">
 </p>
 
 **Fitness Distribution Statistics for Generations 146 to 155**<br>
 <p align="center">
-  <img src="/img/08_Stats_155.png" width="256" title="Statistics 155">
+  <img src="/img/08_Stats_155.png" width="700" title="Statistics 155">
 </p>
 
 **Convergence of the Gene Pool Towards the Optimal Solution Over 155 Generations**<br>
 <p align="center">
-  <img src="/img/09_Convergence.png" width="256" title="Convergence">
+  <img src="/img/09_Convergence.png" width="600" title="Convergence">
 </p>
 
 **Performance Metric of a Genetic Algorithm with Fixed Model Parameters Over 1,000 Samples**<br>
 <p align="center">
-  <img src="/img/10_Performance.png" width="256" title="Performance">
+  <img src="/img/10_Performance.png" width="600" title="Performance">
 </p>
 
 ## Contribute
