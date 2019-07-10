@@ -72,14 +72,15 @@ SEABORN | MATPLOTLIB
 6. Solve 1,000 random board games to assess performance of model parameters of genetic algorithm
 
 **Random Chromosome**
-* 51 Occupied Squares (Red)
-* 49 Unoccupied Squares (Blue)
+* 51 Occupied Squares (Solution: 1, Candidate: Red)
+* 49 Unoccupied Squares (Solution: 0, Candidate: Blue)
 
 <p align="center">
   <img src="/img/02_Battleship_Random_Guess_51.png" width="600" title="Random Guess">
 </p>
 
 **Accuracy Rate of Random Chromosome**
+* 52% candidate accuracy
 * 52 Matches (Green)
 * 48 Mismatches (Red)
 
@@ -88,7 +89,7 @@ SEABORN | MATPLOTLIB
 </p>
 
 **Fitness of Generation 1**<br>
-* 10 Random Chromosomes
+* 10 Random chromosomes
 * 2 top performers are 57% accurate
 * Median fitness of generation is 52.5%
 
