@@ -16,16 +16,16 @@ To intuitively understand the practical implementation and fundamental requireme
 * [Contribute](#contribute)
 
 ## Project Features
-ARTIFICIAL INTELLIGENCE | MACHINE LEARNING | OPTIMIZATION | EVOLUTIONARY ALGORITHM | TOY PROBLEM
+ARTIFICIAL INTELLIGENCE | MACHINE LEARNING | OPTIMIZATION | EVOLUTIONARY ALGORITHMS | TOY PROBLEMS
 
 <p align="center">
-  <img src="/img/01_Battleship_Board_Solution.png" width="256" title="Board Solution">
+  <img src="/img/01_Battleship_Board_Solution.png" width="600" title="Board Solution">
 </p>
 
 - [x] **Random Board Generator for Battleship Game**<br>
-Graphical and binary representation of Battleship board with 5 ships occupying 17 squares
+Graphical and binary representation of a Battleship board game with 5 ships occupying 17 squares
 - [x] **Implementation of Genetic Algorithm**<br>
-Iterative solver that generates candidate solutions of an entire board  of a random Battleship game and converges to the genetic solution
+Iterative solver that generates candidate solutions of an entire board of a random Battleship game, which converge to the genetic solution
 - [x] **Genetic Selector: Elitism**<br>
 The fittest chromosomes from the former generation that are selected to be parents of all of the chromosomes in a new generation.
 - [x] **Genetic Operator: Crossover**<br>
@@ -38,30 +38,33 @@ PYTHON | NUMPY | PANDAS
 
 **[The Battleship Module](/src/battleship.py)**
 
-* Random board generator for Battleship game
-  1. Position the head of the ship with a random two-dimensional tuple.
-  2. Orient the heading of the ship with a random cardinal direction.
-  3. Locate the tail of the ship based on its head position, direction and length.
-  4. Check that the tail of the ship remains within the boundaries of the board.
-  5. Check that the ship does not overlap with any previously positioned ships.
-  6. Repeat the process if the ship fails either of the two assertion tests.
-* Genetic representation of the board solution as binary list
+* Random board generator for a new Battleship game
+* Genetic representation of the board solution as binary representation
 * Fitness function evaluator of a candidate solution based on accuracy
+
+**[The Random Board Generator](https://gist.github.com/acdick/11d2bc2d3c046306a143fd5a0b24b6a9)**
+1. Position the head of the ship with a random two-dimensional tuple
+2. Orient the heading of the ship with a random cardinal direction
+3. Locate the tail of the ship based on its head position, direction and length
+4. Check that the tail of the ship remains within the boundaries of the board
+5. Check that the ship does not overlap with any previously positioned ships
+6. Repeat the process if the ship fails either of the two assertion tests
 
 **[The Genetic Algorithm Module](/src/genetic_algorithm.py)**
 * Random solution generator for first generation
-* Assignment of elite chromos within a generation
-* Selection of elite parents to populate new generation
-* Creation of mutant descendents
-* Creation of splice pair descendents
-* Filling of generation with random descendents
-* Creation of descendent generation
-* Evaluation of fitness of generation
+* Assignment of elite chromosomes within a generation
+* Selection of elite parents to populate a new generation with elite rate
+* Creation of mutant descendents with bit flip rate
+* Creation of splice pair descendents with number of splice pairs
+* Filling of generation vacancies with random descendents
+* Creation of descendent generations with specified population mix and termination criterion
+* Solution driver to create first generation and subsequent generations until convergence
 
 ## Output Results
 SEABORN | MATPLOTLIB
 
 **[Genetic Algorithm Demo](/src/genetic_algorithm_battleship.ipynb)**
+1. Generate board
 
 **Random Chromosome with 51 Occupied Squares (Red) and 49 Unoccupied Squares (Blue)**<br>
 <p align="center">
@@ -80,22 +83,22 @@ SEABORN | MATPLOTLIB
 
 **Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 2**<br>
 <p align="center">
-  <img src="/img/05_Generation_002.png" width="700" title="Generation 002">
+  <img src="/img/05_Generation_002.png" width="600" title="Generation 002">
 </p>
 
 **Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 155**<br>
 <p align="center">
-  <img src="/img/06_Generation_155.png" width="700" title="Generation 155">
+  <img src="/img/06_Generation_155.png" width="600" title="Generation 155">
 </p>
 
 **Fitness Distribution Statistics for Generations 1 to 10**<br>
 <p align="center">
-  <img src="/img/07_Stats_10.png" width="700" title="Statistics 010">
+  <img src="/img/07_Stats_10.png" width="500" title="Statistics 010">
 </p>
 
 **Fitness Distribution Statistics for Generations 146 to 155**<br>
 <p align="center">
-  <img src="/img/08_Stats_155.png" width="700" title="Statistics 155">
+  <img src="/img/08_Stats_155.png" width="500" title="Statistics 155">
 </p>
 
 **Convergence of the Gene Pool Towards the Optimal Solution Over 155 Generations**<br>
