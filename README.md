@@ -16,10 +16,16 @@ To intuitively understand the practical implementation and fundamental requireme
 * [Contribute](#contribute)
 
 ## Project Features
-MACHINE LEARNING | OPTIMIZATION | TOY PROBLEM
+ARTIFICIAL INTELLIGENCE | MACHINE LEARNING | OPTIMIZATION | EVOLUTIONARY ALGORITHM | TOY PROBLEM
+
+<p align="center">
+  <img src="/img/01_Battleship_Board_Solution.png" width="256" title="Board Solution">
+</p>
 
 - [x] **Random Board Generator for Battleship Game**<br>
+Binary representation of Battleship board with 5 ships occupying 17 squares
 - [x] **Implementation of Genetic Algorithm**<br>
+Iterative solver that converges to the genetic solution of a random Battleship board
 - [x] **Genetic Selector: Elitism**<br>
 The fittest chromosomes from the former generation that are selected to be parents of all of the chromosomes in a new generation.
 - [x] **Genetic Operator: Crossover**<br>
@@ -55,38 +61,52 @@ PYTHON | NUMPY | PANDAS
 ## Output Results
 SEABORN | MATPLOTLIB
 
-**[Genetic Algorithm Demon](/src/genetic_algorithm_battleship.ipynb)**
+**[Genetic Algorithm Demo](/src/genetic_algorithm_battleship.ipynb)**
 
-**Binary Representation of Battleship Board with 5 Ships Occupying 17 Squares (Red 1)**
-0000111000000000000000000111100000000000000001000000010100000001010000000101000010000100001000000000
-![01 Board Solution](/img/01_Battleship_Board_Solution.png)
+**Random Chromosome with 51 Occupied Squares (Red) and 49 Unoccupied Squares (Blue)**<br>
+<p align="center">
+  <img src="/img/02_Battleship_Random_Guess_51.png" width="256" title="Random Guess">
+</p>
 
-**Random Chromosome with 51 Occupied Squares (Red) and 49 Unoccupied Squares (Blue)**
-![02 Random Guess](/img/02_Battleship_Random_Guess_51.png)
+**Accuracy Rate of Random Chromosome with 52 Matches (Green) and 48 Mismatches (Red)**<br>
+<p align="center">
+  <img src="/img/03_Random_Accuracy_53.png" width="256" title="Random Accuracy">
+</p>
 
-**Accuracy Rate of Random Chromosome with 52 Matches (Green) and 48 Mismatches (Red)**
-![03 Random Accuracy](/img/03_Random_Accuracy_53.png)
+**Fitness of 10 Random Chromosomes in Generation 1**<br>
+<p align="center">
+  <img src="/img/04_Generation_001.png" width="256" title="Generation 001">
+</p>
 
-**Fitness of 10 Random Chromosomes in Generation 1**
-![04 Generation 001](/img/04_Generation_001.png)
+**Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 2**<br>
+<p align="center">
+  <img src="/img/05_Generation_002.png" width="256" title="Generation 002">
+</p>
 
-**Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 2**
-![05 Generation 002](/img/05_Generation_002.png)
+**Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 155**<br>
+<p align="center">
+  <img src="/img/06_Generation_155.png" width="256" title="Generation 155">
+</p>
 
-**Fitness of 2 Elitism, 2 Splice Pair and 6 Mutation Chromosomes in Generation 155**
-![06 Generation 003](/img/06_Generation_155.png)
+**Fitness Distribution Statistics for Generations 1 to 10**<br>
+<p align="center">
+  <img src="/img/07_Stats_10.png" width="256" title="Statistics 010">
+</p>
 
-**Fitness Distribution Statistics for Generations 1 to 10**
-![07 Statistics 010](/img/07_Stats_10.png)
+**Fitness Distribution Statistics for Generations 146 to 155**<br>
+<p align="center">
+  <img src="/img/08_Stats_155.png" width="256" title="Statistics 155">
+</p>
 
-**Fitness Distribution Statistics for Generations 146 to 155**
-![08 Statistics 155](/img/08_Stats_155.png)
+**Convergence of the Gene Pool Towards the Optimal Solution Over 155 Generations**<br>
+<p align="center">
+  <img src="/img/09_Convergence.png" width="256" title="Convergence">
+</p>
 
-**Convergence of the Gene Pool Towards the Optimal Solution Over 155 Generations**
-![09 Convergence](/img/09_Convergence.png)
-
-**Performance Metric of a Genetic Algorithm with Fixed Model Parameters Over 1,000 Samples**
-![10 Performance](/img/10_Performance.png)
+**Performance Metric of a Genetic Algorithm with Fixed Model Parameters Over 1,000 Samples**<br>
+<p align="center">
+  <img src="/img/10_Performance.png" width="256" title="Performance">
+</p>
 
 ## Contribute
 
